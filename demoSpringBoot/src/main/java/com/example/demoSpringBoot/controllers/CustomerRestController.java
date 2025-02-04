@@ -108,7 +108,7 @@ public class CustomerRestController {
     /**
      * Endpoint to modify specific fields of one customer. I use Postman to generate post requests.
      *
-     * @param cust customer that's going to be modified with it's new values.
+     * @param cust customer that's going to be modified with its new values.
      * @return the deleted customer.
      */
     @PatchMapping("/customers")
@@ -121,7 +121,7 @@ public class CustomerRestController {
                 if(c.getUsername() != null)
                     c.setUsername(cust.getUsername());
                 if(c.getPassword() != null)
-                    c.setName(cust.getPassword());
+                    c.setPassword(cust.getPassword());
 
                 return c;
             }
