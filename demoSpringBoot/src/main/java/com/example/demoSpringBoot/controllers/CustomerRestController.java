@@ -87,21 +87,4 @@ public class CustomerRestController {
         }
         return null;
     }
-
-    /**
-     * Endpoint to delete one customer. I use Postman to generate post requests.
-     *
-     * @param id identifier of the customer that's going to be removed.
-     * @return the deleted customer.
-     */
-    @DeleteMapping("/customers")
-    public Customer deleteCustomer(@RequestBody int id) {
-        for (Customer c: customerList) {
-            if (c.getId() == id) { // Search for a coincidence within the list of customers
-                customerList.remove(c);
-                return c;
-            }
-        }
-        return null;
-    }
 }
