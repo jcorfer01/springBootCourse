@@ -94,8 +94,8 @@ public class CustomerRestController {
      * @param id identifier of the customer that's going to be removed.
      * @return the deleted customer.
      */
-    @DeleteMapping("/customers")
-    public Customer deleteCustomer(@RequestBody int id) {
+    @DeleteMapping("/customers/{id}")
+    public Customer deleteCustomer(@PathVariable int id) {
         for (Customer c: customerList) {
             if (c.getId() == id) { // Search for a coincidence within the list of customers
                 customerList.remove(c);
