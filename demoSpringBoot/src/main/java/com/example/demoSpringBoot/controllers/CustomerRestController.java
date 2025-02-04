@@ -104,4 +104,28 @@ public class CustomerRestController {
         }
         return null;
     }
+
+    /**
+     * Endpoint to modify specific fields of one customer. I use Postman to generate post requests.
+     *
+     * @param cust customer that's going to be modified with it's new values.
+     * @return the deleted customer.
+     */
+    @PatchMapping("/customers")
+    public Customer patchCustomer(@RequestBody Customer cust) {
+        for (Customer c: customerList) {
+            if (c.getId() == cust.getId()) { // Search for the customer
+                // if the field exists it's modified.
+                if(c.getName() != null)
+                    c.setName(cust.getName());
+                if(c.getUsername() != null)
+                    c.setUsername(cust.getUsername());
+                if(c.getPassword() != null)
+                    c.setName(cust.getPassword());
+
+                return c;
+            }
+        }
+        return null;
+    }
 }
